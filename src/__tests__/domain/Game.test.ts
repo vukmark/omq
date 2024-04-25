@@ -1,5 +1,5 @@
-import {QuestionDoesNotExistException, Game, ZeroQuestionsProvidedException} from "../src/Game";
-import {Question} from "../src/Question";
+import {QuestionDoesNotExistException, Game, ZeroQuestionsProvidedException} from "../../domain/Game";
+import {Question} from "../../domain/Question";
 
 describe('test simple math game generator', () => {
   let game: Game;

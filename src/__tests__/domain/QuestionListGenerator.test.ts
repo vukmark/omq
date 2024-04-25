@@ -1,8 +1,8 @@
-import {QuestionGenerator} from "../src/QuestionGenerator";
+import {QuestionGenerator} from "../../domain/QuestionGenerator";
 import {
   InvalidNumberOfQuestionsForGenerateException,
   QuestionListGenerator
-} from "../src/QuestionListGenerator";
+} from "../../domain/QuestionListGenerator";
 import Mock = jest.Mock;
 
 describe('Question generator', () => {

@@ -1,5 +1,5 @@
-import {RandomNumberGenerator} from "../src/RandomNumberGenerator";
-import {MathAdditionUpTo20Question} from "../src/MathAdditionUpTo20Question";
+import {RandomNumberGenerator} from "../../domain/RandomNumberGenerator";
+import {MathAdditionUpTo20Question} from "../../domain/MathAdditionUpTo20Question";
 import Mock = jest.Mock;
 
 describe('test math additions up to 20 question generator', () => {

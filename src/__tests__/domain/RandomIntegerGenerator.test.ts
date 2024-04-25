@@ -1,7 +1,8 @@
-import {InvalidIntegerException, InvalidNumberRangeException, RandomIntegerGenerator} from "../src/RandomIntegerGenerator";
+import {InvalidIntegerException, InvalidNumberRangeException, RandomIntegerGenerator} from "../../domain/RandomIntegerGenerator";
 
 describe('test random integer generator', () => {
     let generator: RandomIntegerGenerator;
+
     beforeEach(() => {
         generator = new RandomIntegerGenerator();
     })
