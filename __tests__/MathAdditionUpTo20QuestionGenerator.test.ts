@@ -9,12 +9,12 @@ describe('test math additions up to 20 question generator', () => {
         };
         (mocRandNumber.getNumber as Mock).mockReturnValueOnce(2);
         (mocRandNumber.getNumber as Mock).mockReturnValueOnce(2);
-        const generator = new MathAdditionUpTo20Question("id", mocRandNumber);
+        const generator = new MathAdditionUpTo20Question(mocRandNumber);
         expect(generator.getQuestion()).toEqual('2+2');
 
         (mocRandNumber.getNumber as Mock).mockReturnValueOnce(2);
         (mocRandNumber.getNumber as Mock).mockReturnValueOnce(3);
-        const gen2 = new MathAdditionUpTo20Question("id", mocRandNumber);
+        const gen2 = new MathAdditionUpTo20Question(mocRandNumber);
         expect(gen2.getQuestion()).toEqual('2+3');
     });
 
@@ -24,15 +24,7 @@ describe('test math additions up to 20 question generator', () => {
         };
         (mocRandNumber.getNumber as Mock).mockReturnValueOnce(2);
         (mocRandNumber.getNumber as Mock).mockReturnValueOnce(3);
-        const generator = new MathAdditionUpTo20Question("id", mocRandNumber);
+        const generator = new MathAdditionUpTo20Question(mocRandNumber);
         expect(generator.getAnswer()).toEqual("5");
-    });
-
-    it('return id same as passed to constructor', () => {
-        const mocRandNumber: jest.Mocked<RandomNumberGenerator> = {
-            getNumber: jest.fn()
-        };
-        const generator = new MathAdditionUpTo20Question("id", mocRandNumber);
-        expect(generator.getId()).toEqual("id");
     });
 });

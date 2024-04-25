@@ -10,7 +10,6 @@ describe('Question generator', () => {
   beforeEach(() => {
     questionGenerator =  {
       getAnswer: jest.fn(),
-      getId: jest.fn(),
       getQuestion: jest.fn()
     }
   })
@@ -31,24 +30,22 @@ describe('Question generator', () => {
   it('returns expected questions', () => {
     (questionGenerator.getAnswer as Mock).mockReturnValue('4');
     (questionGenerator.getQuestion as Mock).mockReturnValue('2+2');
-    (questionGenerator.getId as Mock).mockReturnValue('1');
 
     const g1 = new QuestionListGenerator(2, questionGenerator);
 
     expect(g1.getQuestions()[0]).toEqual({
-      id: '1',
+      id: '0',
       question: '2+2',
       correctAnswer: '4'
     });
 
     (questionGenerator.getAnswer as Mock).mockReturnValue('6');
     (questionGenerator.getQuestion as Mock).mockReturnValue('3+3');
-    (questionGenerator.getId as Mock).mockReturnValue('2');
 
     const g2 = new QuestionListGenerator(2, questionGenerator);
 
     expect(g2.getQuestions()[1]).toEqual({
-      id: '2',
+      id: '1',
       question: '3+3',
       correctAnswer: '6'
     })
