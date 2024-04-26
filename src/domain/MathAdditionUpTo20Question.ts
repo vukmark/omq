@@ -2,13 +2,18 @@ import {QuestionGenerator} from "./QuestionGenerator";
 import {RandomNumberGenerator} from "./RandomNumberGenerator";
 
 export class MathAdditionUpTo20Question implements QuestionGenerator {
-    private firstAddition: number;
-    private secondAddition: number;
+    private firstAddition: number = 0;
+    private secondAddition: number = 0;
+    private numberGenerator: RandomNumberGenerator;
 
     constructor(numberGenerator: RandomNumberGenerator) {
-        this.firstAddition = numberGenerator.getNumber(1, 19);
+        this.numberGenerator = numberGenerator;
+    }
+
+    generateQuestionAndAnswer() {
+        this.firstAddition = this.numberGenerator.getNumber(1, 19);
         const secondMax = 20 - this.firstAddition;
-        this.secondAddition = numberGenerator.getNumber(1, secondMax);
+        this.secondAddition = this.numberGenerator.getNumber(1, secondMax);
     }
 
     getQuestion(): string {

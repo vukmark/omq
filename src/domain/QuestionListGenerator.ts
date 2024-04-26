@@ -21,6 +21,7 @@ export class QuestionListGenerator {
 
     private generateQuestions(): void {
         for (let x = 0; this.howMuchQuestionsToGenerate > x; x++) {
+            this.questionGenerator.generateQuestionAndAnswer();
             this.questions.push({
                 id: x.toString(),
                 question: this.questionGenerator.getQuestion(),

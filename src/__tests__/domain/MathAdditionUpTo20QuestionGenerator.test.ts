@@ -10,12 +10,13 @@ describe('test math additions up to 20 question generator', () => {
         (mocRandNumber.getNumber as Mock).mockReturnValueOnce(2);
         (mocRandNumber.getNumber as Mock).mockReturnValueOnce(2);
         const generator = new MathAdditionUpTo20Question(mocRandNumber);
+        generator.generateQuestionAndAnswer();
         expect(generator.getQuestion()).toEqual('2+2');
 
         (mocRandNumber.getNumber as Mock).mockReturnValueOnce(2);
         (mocRandNumber.getNumber as Mock).mockReturnValueOnce(3);
-        const gen2 = new MathAdditionUpTo20Question(mocRandNumber);
-        expect(gen2.getQuestion()).toEqual('2+3');
+        generator.generateQuestionAndAnswer();
+        expect(generator.getQuestion()).toEqual('2+3');
     });
 
     it('returns answer expected answer', () => {
@@ -25,6 +26,7 @@ describe('test math additions up to 20 question generator', () => {
         (mocRandNumber.getNumber as Mock).mockReturnValueOnce(2);
         (mocRandNumber.getNumber as Mock).mockReturnValueOnce(3);
         const generator = new MathAdditionUpTo20Question(mocRandNumber);
+        generator.generateQuestionAndAnswer();
         expect(generator.getAnswer()).toEqual("5");
     });
 });
