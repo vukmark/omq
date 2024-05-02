@@ -53,4 +53,29 @@ describe('test simple math game generator', () => {
     game.setAnswerForQuestion('1', '4');
     expect(game.getScore()).toEqual(1);
   });
+
+  it('returns undefined on checking is answered correctly', () => {
+    expect(game.isQuestionAnsweredCorrectly('1')).toEqual(undefined);
+  });
+
+  it('returns false on checking is answered correctly', () => {
+    game.setAnswerForQuestion('1', '55');
+
+    expect(game.isQuestionAnsweredCorrectly('1')).toEqual(false);
+  });
+
+  it('returns true on checking is answered correctly', () => {
+    game.setAnswerForQuestion('1', '4');
+
+    expect(game.isQuestionAnsweredCorrectly('1')).toEqual(true);
+  });
+
+  it('return all questions', () => {
+    const threeQuestions: Question[] = [
+      {id: '1', question: '2+2', correctAnswer: "4"},
+      {id: '2', question: '3+3', correctAnswer: "6"},
+      {id: '3', question: '4+3', correctAnswer: "7"},
+    ];
+    expect(game.getQuestions()).toEqual(threeQuestions);
+  })
 });

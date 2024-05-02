@@ -53,6 +53,19 @@ export class Game {
   private isCorrectAnswer(answerByPlayer: string, correctAnswer: string): boolean {
     return Number(answerByPlayer.trim()) == Number(correctAnswer);
   }
+
+  isQuestionAnsweredCorrectly(questionId: string) : boolean|undefined {
+    const questionIndex = this.getQuestionIndexById(questionId);
+    const question = this.questions[questionIndex];
+    if (typeof question.answerByPlayer == 'undefined')
+      return undefined;
+
+    return this.isCorrectAnswer(question.answerByPlayer, question.correctAnswer);
+  }
+
+  getQuestions() : Question[] {
+    return this.questions;
+  }
 }
 
 export class ZeroQuestionsProvidedException extends Error {
