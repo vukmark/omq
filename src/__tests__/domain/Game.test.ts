@@ -78,4 +78,15 @@ describe('test simple math game generator', () => {
     ];
     expect(game.getQuestions()).toEqual(threeQuestions);
   })
+
+  it('returns that games is not finished', () => {
+    expect(game.isGameFinished()).toEqual(false);
+  });
+
+  it('return that game is finished', () => {
+    game.setAnswerForQuestion('1', '2');
+    game.setAnswerForQuestion('2', '2');
+    game.setAnswerForQuestion('3', '2');
+    expect(game.isGameFinished()).toEqual(true);
+  });
 });

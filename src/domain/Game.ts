@@ -66,6 +66,10 @@ export class Game {
   getQuestions() : Question[] {
     return this.questions;
   }
+
+    isGameFinished() {
+      return this.getQuestions().length == this.getNumberOfAnsweredQuestions();
+    }
 }
 
 export class ZeroQuestionsProvidedException extends Error {
